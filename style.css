@@ -1,0 +1,11 @@
+#volunteerCarousel {
+    max-width: 80%; /* Adjust width of the carousel */
+    margin: 0 auto; /* Center the carousel */
+    object-fit: fill;
+}
+
+.carousel-inner img {
+    max-height: 500px; /* Limit the height of the images */
+    width: 80%; /* Ensure the image scales to the carousel's width */
+    /* Prevent image distortion by cropping instead of stretching */
+}

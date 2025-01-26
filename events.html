@@ -1,0 +1,227 @@
+<!--
+Name: Maitri Makwana & Shivani Patel
+Group: 7
+Date Created: 2025-01-19
+Date Modified: 2025-01-25
+Description: This file implements the "Contact Us" page for the Volunteer Connect website.
+It allows users to submit their name, email, and message via a form and provides a user-friendly design.
+  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #dabd7a; /* Light Blue */
+      color: #333;
+    }
+
+    nav {
+      background: linear-gradient(90deg, #6A5ACD, #8A2BE2); /* Purple shades */
+    }
+
+    .navbar-brand {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.5rem;
+      color: #fff !important;
+    }
+
+    .nav-link {
+      color: #fff !important;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #FFD700 !important; /* Gold for hover */
+    }
+
+    .container {
+      margin-top: 50px;
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      color: #333;
+      font-size: 2.5rem;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .form-select {
+      border-radius: 30px;
+      font-size: 1rem;
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .event-card {
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .event-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .event-card h5 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #6A5ACD; /* Purple */
+      margin-bottom: 10px;
+    }
+
+    .event-card p {
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    footer {
+      background-color: #6A5ACD; /* Purple Footer */
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 1rem;
+    }
+
+    footer a {
+      color: #FFD700; /* Gold Links */
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">Volunteer Connect</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="opportunities.html">Volunteer Now</a></li>
+        <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            More
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="privacy.html">Privacy Policy</a></li>
+            <li><a class="dropdown-item" href="terms.html">Terms of Service</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <h1>Upcoming Events</h1>
+
+  <!-- Filter Section -->
+  <div class="d-flex justify-content-end mt-3">
+    <select id="categoryFilter" class="form-select w-25">
+      <option value="all">All Categories</option>
+      <option value="Fundraisers">Fundraisers</option>
+      <option value="Workshops">Workshops</option>
+      <option value="Cleanups">Cleanups</option>
+    </select>
+  </div>
+
+  <!-- Calendar Grid -->
+  <div id="eventsContainer" class="calendar-grid mt-4">
+    <div class="event-card" data-category="Fundraisers">
+      <h5>Charity Walkathon</h5>
+      <p>Date: 2025-03-15</p>
+      <p>Location: Lakeview Park</p>
+    </div>
+    <div class="event-card" data-category="Cleanups">
+      <h5>Beach Cleanup</h5>
+      <p>Date: 2025-04-10</p>
+      <p>Location: Whitby Beach</p>
+    </div>
+    <div class="event-card" data-category="Fundraisers">
+      <h5>Food Donation</h5>
+      <p>Date: 2025-05-01</p>
+      <p>Location: Downtown Community Center</p>
+    </div>
+    <div class="event-card" data-category="Fundraisers">
+      <h5>Blood Donation</h5>
+      <p>Date: 2025-06-20</p>
+      <p>Location: Lakeridge Hospital</p>
+    </div>
+    <div class="event-card" data-category="Workshops">
+      <h5>Environment Awareness Workshop</h5>
+      <p>Date: 2025-07-05</p>
+      <p>Location: Durham College</p>
+    </div>
+    <div class="event-card" data-category="Cleanups">
+      <h5>Growing Trees</h5>
+      <p>Date: 2025-08-12</p>
+      <p>Location: Grandview Park</p>
+    </div>
+    <div class="event-card" data-category="Workshops">
+      <h5>Elderly Care Support</h5>
+      <p>Date: 2025-08-30</p>
+      <p>Location: Conard Place</p>
+    </div>
+    <div class="event-card" data-category="Cleanups">
+      <h5>Community Gardens</h5>
+      <p>Date: 2025-09-10</p>
+      <p>Location: Botanical Garden</p>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <p>&copy; Volunteer Connect created by Maitri Makwana</p>
+</footer>
+
+<script>
+  // Filter Events by Category
+  const categoryFilter = document.getElementById('categoryFilter');
+  const eventsContainer = document.getElementById('eventsContainer');
+
+  categoryFilter.addEventListener('change', () => {
+    const selectedCategory = categoryFilter.value;
+    const eventCards = eventsContainer.querySelectorAll('.event-card');
+
+    eventCards.forEach(card => {
+      const eventCategory = card.getAttribute('data-category');
+      if (selectedCategory === 'all' || eventCategory === selectedCategory) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
